@@ -12,8 +12,8 @@ lisa = UnPersonaje "Lisa" 315 20
 skinner = UnPersonaje "Skinner" 1000 5
 srburns = UnPersonaje "SrBurns" 1000000 
 
---listaFunciones = [irColegio, comerDonas, irTrabajar, escuelaDirector, mirarTele]
---listaInfinita = [irColegio, comerDonas, irTrabajar, escuelaDirector, mirarTele, listaInfinita]
+listaFunciones = [irColegio, (comerDonas 20), (irTrabajar "bombero"), escuelaDirector, (mirarTele 3)]
+listaInfinita = cycle [irColegio, (comerDonas 20), (irTrabajar "bombero"), escuelaDirector, (mirarTele 3)]
 
 ---FUNCIONES---
 
@@ -39,6 +39,7 @@ actividadDecisiva cifra logro f personaje
     | logro == "millonario" && dinero (f personaje) > 1000000 = "actividad decisiva"
     | logro == "alegrarse" && felicidad (f personaje) > cifra = "actividad decisiva"
     | logro == "krosti" && dinero (f personaje) >= 10 = "actividad decisiva"
+    | logro == "depresion" && felicidad (f personaje) == 0 = "actividad decisiva"
     | otherwise = "actividad no decisiva"
 
 listaActividades :: [Personaje -> Personaje] -> String -> Personaje ->  Personaje
