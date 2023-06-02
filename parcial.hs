@@ -41,7 +41,7 @@ actividadDecisiva cifra logro f personaje
     | logro == "krosti" && dinero (f personaje) >= 10 = "actividad decisiva"
     | otherwise = "actividad no decisiva"
 
-cuatroB :: [Personaje -> Personaje] -> String -> Personaje ->  Personaje
-cuatroB listaFunciones logro personaje 
+listaActividades :: [Personaje -> Personaje] -> String -> Personaje ->  Personaje
+listaActividades listaFunciones logro personaje 
     | (actividadDecisiva 200) logro (head listaFunciones) personaje == "actividad decisiva" = head listaFunciones personaje
     | otherwise = cuatroB (drop 1 listaFunciones) logro personaje
