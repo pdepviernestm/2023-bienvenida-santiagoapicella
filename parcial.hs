@@ -46,3 +46,19 @@ listaActividades :: [Personaje -> Personaje] -> String -> Personaje ->  Personaj
 listaActividades listaFunciones logro personaje 
     | (actividadDecisiva 200) logro (head listaFunciones) personaje == "actividad decisiva" = (head listaFunciones) personaje
     | otherwise = listaActividades (drop 1 listaFunciones) logro personaje
+
+{-comerDonas 12 homero
+UnPersonaje {nombre = "Homero", dinero = 14880, felicidad = 220}-} --1.a
+
+{-escuelaDirector skinner
+UnPersonaje {nombre = "Skinner", dinero = 1017, felicidad = 0}-} --1.b
+
+{-mirarTele 4 (irColegio lisa)
+UnPersonaje {nombre = "Lisa", dinero = 275, felicidad = 44}-} --1.c
+
+{-listaActividades listaFunciones "depresion" lisa
+UnPersonaje {nombre = "Lisa", dinero = 332, felicidad = 0}-} --2.c se aplica la lista de funciones y se consigue cumplir del logro
+
+{-listaActividades listaFunciones "millonario" bart
+*** Exception: Prelude.head: empty list-}--2.c se aplica la lista de funciones y no se consigue cumplir con el logro y se llega al final de la lista
+
